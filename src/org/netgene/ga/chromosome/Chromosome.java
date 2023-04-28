@@ -14,7 +14,7 @@ import org.netgene.ga.gene.Gene;
  * 
  * @param <G> Gene type
  */
-public abstract class Chromosome<G extends Gene<?>> 
+public abstract class Chromosome<G extends Gene> 
 {
     protected ArrayList<G> chromosome;// = new ArrayList<>();
     

@@ -159,7 +159,7 @@ public class BitChromosome extends Chromosome<BitGene> implements Serializable
     }
     
     /**
-     * Retrun a boolean array for this BitChromosome
+     * Return a boolean array for this BitChromosome
      * 
      * @return a boolean array
      */

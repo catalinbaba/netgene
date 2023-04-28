@@ -32,7 +32,7 @@ public class Offspring implements Serializable
 {
     private static final long serialVersionUID = 1L;
     
-    private final ArrayList<Individual> offsprings = new ArrayList();
+    private final ArrayList<Individual> offspring = new ArrayList();
        
     /**
      * Create a instance of an Offspring
@@ -47,7 +47,7 @@ public class Offspring implements Serializable
      */
     public void addOffspring(Individual individual)
     {
-        this.offsprings.add(individual);
+        this.offspring.add(individual);
     }
     
     /**
@@ -59,7 +59,7 @@ public class Offspring implements Serializable
      */
     public Individual getOffspring(int index)
     {
-        return offsprings.get(index);
+        return offspring.get(index);
     }
     
     /**
@@ -69,7 +69,7 @@ public class Offspring implements Serializable
      */
     public int getSize()
     {
-        return offsprings.size();
+        return offspring.size();
     }
     
      /**
@@ -79,7 +79,7 @@ public class Offspring implements Serializable
      */
     public Stream<Individual> stream()
     {
-        return offsprings.stream();
+        return offspring.stream();
     }
     
      /**
@@ -89,6 +89,6 @@ public class Offspring implements Serializable
      */
     public ArrayList<Individual> getIndividuals()
     {
-        return offsprings;
+        return offspring;
     }
 }

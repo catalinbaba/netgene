@@ -22,8 +22,6 @@ package org.netgene.network.learning;
 
 import java.io.Serializable;
 import java.time.Clock;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ForkJoinPool;
 import org.netgene.utils.TaskExecutor;
 

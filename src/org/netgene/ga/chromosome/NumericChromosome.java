@@ -28,7 +28,7 @@ import org.netgene.ga.gene.NumericGene;
  * 
  * @param <G> gene type
  */
-public abstract class NumericChromosome<G extends NumericGene<?>> extends Chromosome<G> 
+public abstract class NumericChromosome<G extends NumericGene<?>> extends Chromosome<G>
 {
     public abstract Chromosome<G> average(Chromosome<G> gene);
 }

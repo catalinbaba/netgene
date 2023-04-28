@@ -47,7 +47,7 @@ public abstract class Selector implements Serializable
     }
     
      /**
-     * Set incest prevention
+     * Get incest prevention
      * 
      * @return incestPrevention incest prevention
      */

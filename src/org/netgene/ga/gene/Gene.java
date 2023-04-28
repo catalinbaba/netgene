@@ -23,6 +23,7 @@ package org.netgene.ga.gene;
 /**
  *
  * @author Catalin Baba
+ * @param <T>
  */
 public interface Gene<T> 
 {

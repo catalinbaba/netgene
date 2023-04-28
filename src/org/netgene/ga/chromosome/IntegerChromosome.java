@@ -166,16 +166,16 @@ public class IntegerChromosome extends NumericChromosome<IntegerGene> implements
     }
     
     /**
-     * Return a double array for this BitChromosome
+     * Return a int array for this BitChromosome
      * 
-     * @return a double array
+     * @return a int array
      */    
     public int[] toArray()
     {       
-        int doubleArray[] = new int[chromosome.size()];   
+        int intArray[] = new int[chromosome.size()];   
         for(int i=0; i<chromosome.size(); i++)
-            doubleArray[i] = chromosome.get(i).getAllele();
-        return doubleArray;
+            intArray[i] = chromosome.get(i).getAllele();
+        return intArray;
     }
     
     /**

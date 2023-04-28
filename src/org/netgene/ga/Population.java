@@ -265,9 +265,7 @@ public final class Population implements Serializable
         String toString = "Population size: " + size() + "\n";
                 
         for(int i=0; i<population.size(); i++)
-        {
             toString = toString + "Individual : " + i + "\n" + population.get(i).toString() + "\n";  
-        }
         return toString;
     }
    

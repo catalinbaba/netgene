@@ -117,16 +117,11 @@ public class Order1Crossover<C extends Chromosome<?>> extends CrossoverOperator<
        
     private PermutationChromosome getOffspring(Individual x, Individual y) throws GaException
     {
-        //generate crossover points
-        int firstCrossoverPoint = RandomUtils.nextInt(x.getChromosome().length());
-        int secondBound = x.getChromosome().length()- firstCrossoverPoint;
-        int diff = RandomUtils.nextInt(secondBound+1);
-        int secondCrossoverPoint = firstCrossoverPoint + diff;
-        if(firstCrossoverPoint == secondCrossoverPoint)
-           if(firstCrossoverPoint==0)
-                secondCrossoverPoint++;
-            else
-                firstCrossoverPoint--;
+        int firstCrossoverPoint = RandomUtils.nextInt(x.getChromosome().length()-1);
+        int secondCrossoverPoint = RandomUtils.nextInt(firstCrossoverPoint+1, x.getChromosome().length());
+        
+        System.out.println("first crossover point: " + firstCrossoverPoint);
+        System.out.println("second crossover point: " + secondCrossoverPoint);
         
         PermutationChromosome firstParent = (PermutationChromosome)x.getChromosome();
         PermutationChromosome secondParent = (PermutationChromosome)y.getChromosome();

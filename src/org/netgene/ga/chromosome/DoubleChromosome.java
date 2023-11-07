@@ -23,6 +23,7 @@ package org.netgene.ga.chromosome;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.netgene.ga.exception.GaException;
+import org.netgene.ga.gene.BitGene;
 import org.netgene.ga.gene.DoubleGene;
 
 /**
@@ -233,5 +234,16 @@ public class DoubleChromosome extends NumericChromosome<DoubleGene> implements S
         for(int i=0; i<chromosome.size(); i++)
             averageChromosome.addGene(chromosome.get(i).average(thatChromosome.getGene(i)));
         return averageChromosome;
+    }
+    
+    @Override
+    public boolean contains(DoubleGene gene)
+    {
+        for(int i=0; i<chromosome.size(); i++)
+            if(chromosome.get(i).getAllele().doubleValue() == gene.getAllele().doubleValue())
+            {
+                return true;
+            }
+        return false;
     }
 }

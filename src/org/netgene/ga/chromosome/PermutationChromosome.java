@@ -40,30 +40,30 @@ public class PermutationChromosome extends IntegerChromosome
      * The IntegerGenes are randomly distributed in the chromosome.
      * The most important property is that each value is never duplicated: each value is contained just once
      * 
-     * @param value chromosome length
+     * @param size chromosome length
      */     
-    public PermutationChromosome(int value)
+    public PermutationChromosome(int size)
     {
         chromosome = new ArrayList();
-        for(int i=0; i<value; i++)
+        for(int i=0; i<size; i++)
             chromosome.add(new IntegerGene(i));
         Collections.shuffle(chromosome);
     }
     
     /**
      * Initializes a new instance of the PermutationChromosome class with the specified chromosome length.IntegerGenes are created and added to the chromosome.
-     * The gene will have allele values between 0 and specified value (exclusive)
+     * The gene will have allele values between start and specified value (exclusive)
      * The IntegerGenes are randomly distributed in the chromosome.
      * The most important property is that each value is never duplicated: each value is contained just once
      * 
-     * @param value chromosome length
+     * @param size chromosome length
      * 
      * @param start value to start
      */     
-    public PermutationChromosome(int value, int start)
+    public PermutationChromosome(int size, int start)
     {
         chromosome = new ArrayList();
-        for(int i=0; i<value; i++)
+        for(int i=0; i<size; i++)
             chromosome.add(new IntegerGene(i+start));
         Collections.shuffle(chromosome);
     }

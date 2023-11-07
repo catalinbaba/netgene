@@ -63,7 +63,7 @@ public class RandomMutator extends GaussianMutator implements Serializable
             double rand = RandomUtils.nextDouble();
             if(rand < mutationRate) //is selected to be mutated
             {
-                double delta = RandomUtils.nextGaussian(this.sigma);
+                double delta = RandomUtils.nextGaussian(this.sigma)*10;
                 IntegerGene gene = new IntegerGene((int)delta);
                     
                 chromosome.setGene(i, gene);

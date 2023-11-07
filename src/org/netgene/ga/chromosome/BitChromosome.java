@@ -165,10 +165,21 @@ public class BitChromosome extends Chromosome<BitGene> implements Serializable
      */
     public boolean[] toArray()
     {       
-        boolean doubleArray[] = new boolean[chromosome.size()];   
+        boolean booleanArray[] = new boolean[chromosome.size()];   
         for(int i=0; i<chromosome.size(); i++)
-            doubleArray[i] = chromosome.get(i).getAllele();
-        return doubleArray;
+            booleanArray[i] = chromosome.get(i).getAllele();
+        return booleanArray;
+    }
+    
+    @Override
+    public boolean contains(BitGene gene)
+    {
+        for(int i=0; i<chromosome.size(); i++)
+            if(chromosome.get(i).getAllele().booleanValue() == gene.getAllele().booleanValue())
+            {
+                return true;
+            }
+        return false;
     }
     
     /**

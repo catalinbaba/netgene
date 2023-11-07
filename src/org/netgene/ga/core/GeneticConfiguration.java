@@ -28,7 +28,7 @@ import org.netgene.ga.exception.GaException;
 import org.netgene.ga.mutator.GaussianMutator;
 import org.netgene.ga.mutator.MutatorOperator;
 import org.netgene.ga.selection.parent.RouletteSelector;
-import org.netgene.ga.selection.parent.Selector;
+import org.netgene.ga.selection.parent.ParentSelector;
 import org.netgene.utils.ConsolePrinter;
 import org.netgene.utils.Printer;
 
@@ -74,7 +74,7 @@ public final class GeneticConfiguration implements Serializable
     /*
         Parent selection algorithm - default value is Roulette Selector
     */
-    private Selector parentSelector = new RouletteSelector();
+    private ParentSelector parentSelector = new RouletteSelector();
     
     /*
         Default value is null - if not instantiated it will not be used
@@ -146,7 +146,7 @@ public final class GeneticConfiguration implements Serializable
      * 
      * @return GeneticConfiguration builder class
      */
-    public GeneticConfiguration setParentSelector(final Selector parentSelector)
+    public GeneticConfiguration setParentSelector(final ParentSelector parentSelector)
     {
         this.parentSelector = verifyIsNotNull(parentSelector);
         return this;
@@ -199,7 +199,7 @@ public final class GeneticConfiguration implements Serializable
      * 
      * @return GeneticConfiguration builder class
      */
-    public GeneticConfiguration setCrossoverRate(final int crossoverRate)
+    public GeneticConfiguration setCrossoverRate(final double crossoverRate)
     {
         if(crossoverRate <= 0)
           throw new GaException("Crossover rate value cannot be negative");

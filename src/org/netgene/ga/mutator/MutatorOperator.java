@@ -12,7 +12,7 @@ import org.netgene.ga.exception.MutatorException;
  *
  * @author Catalin Baba
  */
-public abstract class MutatorOperator
+public abstract class MutatorOperator 
 {
     protected double mutationRate = 0.05;  //equivalent to 5%
     

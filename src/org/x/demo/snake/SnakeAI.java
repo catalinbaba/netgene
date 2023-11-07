@@ -79,7 +79,7 @@ public class SnakeAI
             System.out.println("Best fitness score: " +g.getPopulation().getBestIndividual().getFitnessScore());
             System.out.println("Longest snake size: " + g.getPopulation().getBestIndividual().getCustomData());
         };
-        
+        /*
         StopCondition customStopCondition = (pop) ->
         {
             if((int)pop.getBestIndividual().getCustomData() >= 20)
@@ -87,9 +87,9 @@ public class SnakeAI
             else
                 return false;
         };
-        
+        */
         ga.setGenerationTracker(debugStep);
-        ga.setCustomStopCondition(customStopCondition);
+        //ga.setCustomStopCondition(customStopCondition);
         long startTime = System.nanoTime();
         ga.evolve(population, snakeFitness);
         long endTime = System.nanoTime();
@@ -119,6 +119,12 @@ public class SnakeAI
 	//System.out.println("Execution time in nanoseconds: " + timeElapsed);
 	//System.out.println("Execution time in milliseconds: " + timeElapsed / 1000000);
         System.out.println("Execution time in seconds: " + (double)(timeElapsed / 1000000)/1000);
+        
+        System.out.println("--------------------------------------------------");
+//        for(int i=0; i<ga.getPopulation().size(); i++)
+//        {
+//            System.out.println("Fitness value: " + ga.getPopulation().getIndividual(i).getFitnessScore());
+//        }
     }
     
     public static void generateNetworks() throws Exception

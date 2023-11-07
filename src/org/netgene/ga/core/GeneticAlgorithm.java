@@ -33,13 +33,15 @@ import org.netgene.ga.Individual;
 import org.netgene.ga.Offspring;
 import org.netgene.ga.Parents;
 import org.netgene.ga.Population;
+import org.netgene.ga.chromosome.Chromosome;
+import org.netgene.ga.chromosome.IntegerChromosome;
 import org.netgene.ga.crossover.CrossoverOperator;
 import org.netgene.ga.exception.CrossoverException;
 import org.netgene.ga.exception.MutatorException;
 import org.netgene.ga.exception.SelectionException;
 import org.netgene.ga.fitness.FitnessFunction;
 import org.netgene.ga.mutator.MutatorOperator;
-import org.netgene.ga.selection.parent.Selector;
+import org.netgene.ga.selection.parent.ParentSelector;
 import org.netgene.ga.stop.StopCondition;
 import org.netgene.utils.Printer;
 import org.netgene.utils.RandomUtils;
@@ -56,19 +58,25 @@ public class GeneticAlgorithm implements Serializable
     
     private double crossoverRate;
     
-    private double mutationRate;
-    
     private final boolean elitism;
     
     private final int elitismSize;
       
-    private final Selector parentSelector;
+    private ParentSelector parentSelector;
     
     //private final Selector offspringSelector;
         
-    private final CrossoverOperator crossoverOperator;
+    private CrossoverOperator crossoverOperator;
+
+    public void setCrossoverOperator(CrossoverOperator crossoverOperator) {
+        this.crossoverOperator = crossoverOperator;
+    }
     
-    private final MutatorOperator mutatorOperator;
+    private MutatorOperator mutatorOperator;
+
+    public void setMutatorOperator(MutatorOperator mutatorOperator) {
+        this.mutatorOperator = mutatorOperator;
+    }
     
     private final int maxGeneration;
     
@@ -100,7 +108,7 @@ public class GeneticAlgorithm implements Serializable
     
     private boolean skipMutation = false;
         
-    protected GeneticAlgorithm(Selector parentSelector,
+    protected GeneticAlgorithm(ParentSelector parentSelector,
                             ///sSelector offspringSelector,
                             CrossoverOperator crossoverOperator,
                             MutatorOperator mutatorOperator,
@@ -123,7 +131,7 @@ public class GeneticAlgorithm implements Serializable
         this.mutatorOperator = mutatorOperator;
         this.mutatorOperator.setMutationRate(mutationRate);
         this.crossoverRate = crossoverRate;
-        this.mutationRate = mutationRate;
+        this.mutatorOperator.setMutationRate(mutationRate);
         this.elitism = elitism;
         this.elitismSize = elitismSize;
         this.maxGeneration = maxGeneration;
@@ -190,13 +198,14 @@ public class GeneticAlgorithm implements Serializable
         long generationNr = population.getGeneration();
                        
         int limit = elitism ? population.size()-elitismSize : population.size();
-        
+
+        //pass elites to the new population
         population.stream().limit(population.size()-limit).forEach(elem -> newPopulation.addIndividual(elem));
-      
+     
         Task evolutionParallelTask = getEvolutionParallelTask(limit, newPopulation);
     
         Duration evolutionDuration = taskExecutor.runTask(evolutionParallelTask, threadPool);
-               
+        
         Task evaluationParallelTask = () ->
         {
             calculatePopulationFitness();
@@ -237,7 +246,6 @@ public class GeneticAlgorithm implements Serializable
                     return individual;
                 }
                 );
-                       
             individualStream.limit(limit).forEach(individual -> newPopulation.addIndividual(individual));
             
             population = newPopulation;
@@ -260,6 +268,21 @@ public class GeneticAlgorithm implements Serializable
         
         allFutures.join();
         */
+    }
+    
+    private boolean degubMethod(Individual a, Individual b)
+    {
+        IntegerChromosome ch1 = (IntegerChromosome)a.getChromosome();
+        IntegerChromosome ch2 = (IntegerChromosome)b.getChromosome();
+        //boolean rez = false;
+        for(int i=0;i<ch1.length()-1; i++)
+        {
+            int g1 = ch1.getGene(i).getAllele();
+            int g2 = ch2.getGene(i).getAllele();
+            if(g1!=g2)
+                return false;
+        }
+        return true;
     }
     
     /*
@@ -318,9 +341,15 @@ public class GeneticAlgorithm implements Serializable
         }
         else
         {
-            offspring.addOffspring(couple.getFirstParent());
+            //create the child as a copy of the parent, not the parent itself 
+            //we can pass the elite wich can be mutated
+            Chromosome firstOffspring = couple.getFirstParent().getChromosome().copy();
+            offspring.addOffspring(new Individual(firstOffspring));
             if(!crossoverOperator.hasSingleOffspring())
-                offspring.addOffspring(couple.getSecondParent());
+            {
+                Chromosome secondOffspring = couple.getSecondParent().getChromosome().copy();
+                offspring.addOffspring(new Individual(secondOffspring));
+            }
         }
         return offspring;
     }
@@ -372,6 +401,24 @@ public class GeneticAlgorithm implements Serializable
         generationTracker.track(this, result);
     }
     
+     /**
+     * Set population 
+     * 
+      */
+    public void setPopulation(Population population) {
+        this.population = population;
+    }
+    
+    public void changeMutatorOperator(MutatorOperator mutator)
+    {
+        this.mutatorOperator = mutator;
+    }
+    
+    public void changeSelectorOperator(ParentSelector selector)
+    {
+        this.parentSelector = selector;
+    }
+    
     //-----------------------GETTER METHODS---------------------------------------
        
     /**
@@ -418,7 +465,7 @@ public class GeneticAlgorithm implements Serializable
      */
     public void setMutationRate(double mutationRate)
     {
-        this.mutationRate = mutationRate;
+        this.mutatorOperator.setMutationRate(mutationRate);
     }
       
     /**

@@ -30,7 +30,7 @@ import org.netgene.ga.exception.SelectionException;
  *
  * @author Catalin Baba
  */
-public abstract class Selector implements Serializable
+public abstract class ParentSelector implements Serializable
 {
     private static final long serialVersionUID = 1L;
  

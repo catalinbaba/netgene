@@ -85,7 +85,7 @@ public class IntegerChromosome extends NumericChromosome<IntegerGene> implements
      * 
      * @param integerArray Integer array with the genes allele values
      */
-    public IntegerChromosome(Integer ... integerArray)
+    public IntegerChromosome(int [] integerArray)
     {
         chromosome = new ArrayList();
         for(int i=0; i<integerArray.length; i++)
@@ -233,4 +233,16 @@ public class IntegerChromosome extends NumericChromosome<IntegerGene> implements
            averageChromosome.addGene(chromosome.get(i).average(thatChromosome.getGene(i)));
         return averageChromosome;
     }
+    
+    @Override
+    public boolean contains(IntegerGene gene)
+    {
+        for(int i=0; i<chromosome.size(); i++)
+            if(chromosome.get(i).getAllele().intValue() == gene.getAllele().intValue())
+            {
+                return true;
+            }
+        return false;
+    }
+
 }

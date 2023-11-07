@@ -34,5 +34,6 @@ public abstract class Chromosome<G extends Gene>
     
     public abstract Chromosome<G> copy();
     
+    public abstract boolean contains(G gene);
          
 }

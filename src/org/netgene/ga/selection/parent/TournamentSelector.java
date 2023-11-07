@@ -33,7 +33,7 @@ import org.netgene.ga.exception.SelectionException;
  * 
  * @author Catalin Baba
  */
-public class TournamentSelector extends Selector implements Serializable
+public class TournamentSelector extends ParentSelector implements Serializable
 {
     private static final long serialVersionUID = 1L;
     
@@ -64,7 +64,7 @@ public class TournamentSelector extends Selector implements Serializable
     {
         if(population.size() == 0)
             throw new SelectionException("Population size is 0! Cannot select parents.");
-        if(population.size() < tournamentSize)
+        if(population.size() <= tournamentSize)
             throw new SelectionException("Tournament size cannot be equal or higher than the population size!");
         Population selectFrom = (Population)population.clone();
         Individual selected = Stream.generate(() -> {

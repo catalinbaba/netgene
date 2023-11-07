@@ -32,7 +32,7 @@ import org.netgene.utils.RandomUtils;
  * 
  * @author Catalin Baba
  */
-public class RandomSelector extends Selector implements Serializable
+public class RandomSelector extends ParentSelector implements Serializable
 {
     private static final long serialVersionUID = 1L;
     

@@ -94,6 +94,18 @@ public final class Population implements Serializable
         return this.population.get(index);
     }
     
+     /**
+     * Replace an individual to this population at the specified index
+     * 
+     * @param index individual index
+     * 
+     * @param individual individual to be replaced
+     */
+    public void replaceIndividual(int index, Individual individual)
+    {
+        this.population.set(index, individual);
+    }
+        
     /**
      * Add an individual to this population at the specified index
      * 
@@ -249,7 +261,6 @@ public final class Population implements Serializable
             clone = new Population();
         }
         clone.population = population.stream().collect(Collectors.toList());
-        //List<Individual> cloneArray = population.stream().collect(Collectors.toList());
         return clone;
     }
     

@@ -31,7 +31,7 @@ import org.netgene.utils.RandomUtils;
  * 
  * @author Catalin Baba
  */
-public class RouletteSelector extends Selector implements Serializable
+public class RouletteSelector extends ParentSelector implements Serializable
 {
     private static final long serialVersionUID = 1L;
     
@@ -50,7 +50,6 @@ public class RouletteSelector extends Selector implements Serializable
     @Override
     protected Individual select(Population population) throws SelectionException
     {
-        double sumFitness = 0.0;
         double spinWheel = 0.0;
         double populationFitness = population.populationFitness();
         double rouletteWheelPosition =  RandomUtils.nextDouble() * populationFitness;

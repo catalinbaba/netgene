@@ -34,7 +34,7 @@ import org.netgene.utils.RandomUtils;
  * 
  * @author Catalin Baba
  */
-public class RankSelector extends Selector implements Serializable
+public class RankSelector extends ParentSelector implements Serializable
 {
     private static final long serialVersionUID = 1L;
     
@@ -53,7 +53,6 @@ public class RankSelector extends Selector implements Serializable
     @Override
     protected Individual select(Population population)
     {
-        int sumRank = 0;
         int spinWheel = 0;
         int populationRank = population.size() * (population.size() + 1) / 2;
         int rouletteWheelPosition =  RandomUtils.nextInt(populationRank);

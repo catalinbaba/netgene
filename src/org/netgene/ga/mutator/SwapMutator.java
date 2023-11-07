@@ -64,6 +64,23 @@ public class SwapMutator extends MutatorOperator implements Serializable
         }
     }
     
+//    private void mutate2(Chromosome chromosome) 
+//    {
+//        for(int i=0 ;i<chromosome.length()/2; i++)
+//        {
+//            double rand = RandomUtils.nextDouble();
+//           
+//            if(rand < mutationRate) //is selected to be mutated
+//            {
+//                
+//                Gene firstGene = chromosome.getGene(i);
+//                
+//                chromosome.setGene(i, chromosome.getGene(chromosome.length()/2+i));
+//                chromosome.setGene(chromosome.length()/2+i, firstGene);
+//            }
+//        }
+//    }
+    
      @Override
     public void mutate(Individual individual) throws MutatorException {
         mutate(individual.getChromosome());

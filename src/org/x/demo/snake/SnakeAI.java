@@ -54,6 +54,8 @@ public class SnakeAI
           
         System.out.println("Population is created!");
         
+        //System.out.println("threads: " + Runtime.getRuntime().availableProcessors());
+        
         SnakeFitness snakeFitness = new SnakeFitness();
            
         TournamentSelector tournamentSelector = new TournamentSelector(10);
@@ -65,6 +67,7 @@ public class SnakeAI
                                                   .setElitismSize(10)
                                                   .setMaxGeneration(1000)
                                                   .setThreadPoolSize(2)
+                                                  .setThreadPoolSize(24)
                                                   .getAlgorithm();
         
         

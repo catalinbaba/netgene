@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/utils/ConsolePrinter.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/World.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/gene/Gene.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/gene/BitGene.java</file>
@@ -27,9 +28,11 @@
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/Sudoku.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/core/GenerationTracker.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/CrossoverOperator.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/utils/Printers.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/Population.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/selection/parent/TournamentSelector.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/chromosome/NumericChromosome.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/utils/Printer.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/chromosome/BitChromosome.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/test/DigitRecognition.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/CustomMutator.java</file>
@@ -61,6 +64,7 @@
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/gene/DoubleGene.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/SnakeAI.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/chromosome/IntegerChromosome.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/Lesson3.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomSwapMutator.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/MultiLayerNetwork.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/Offspring.java</file>
@@ -75,6 +79,7 @@
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/SudokuGA_run.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/CustomPyCrossover.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/learning/optimizer/Adam.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/Node.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/OnePointCrossover.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/core/GenerationResult.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/fitness/FitnessFunction.java</file>

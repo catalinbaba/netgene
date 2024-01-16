@@ -5,8 +5,8 @@
  */
 package xsudoku;
 
-import org.netgene.ga.Individual;
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Population;
 import org.netgene.ga.chromosome.IntegerChromosome;
 import org.netgene.ga.core.GenerationTracker;
 import org.netgene.ga.core.GeneticAlgorithm;

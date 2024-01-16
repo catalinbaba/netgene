@@ -21,8 +21,8 @@
 package org.netgene.ga.crossover;
 
 import java.io.Serializable;
-import org.netgene.ga.Individual;
-import org.netgene.ga.Offspring;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Offspring;
 import org.netgene.ga.chromosome.Chromosome;
 import org.netgene.ga.chromosome.PermutationChromosome;
 import org.netgene.ga.exception.CrossoverException;

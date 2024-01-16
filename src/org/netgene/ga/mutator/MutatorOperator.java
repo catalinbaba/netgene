@@ -5,7 +5,7 @@
  */
 package org.netgene.ga.mutator;
 
-import org.netgene.ga.Individual;
+import org.netgene.ga.core.Individual;
 import org.netgene.ga.exception.MutatorException;
 
 /**

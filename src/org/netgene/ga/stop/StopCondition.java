@@ -20,7 +20,7 @@
 
 package org.netgene.ga.stop;
 
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Population;
 
 /**
  *

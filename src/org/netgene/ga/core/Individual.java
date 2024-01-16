@@ -18,7 +18,7 @@
  *    Catalin Baba (catalin.viorelbaba@gmail.com)
 */
 
-package org.netgene.ga;
+package org.netgene.ga.core;
 
 import java.io.Serializable;
 import org.netgene.ga.chromosome.Chromosome;

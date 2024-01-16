@@ -9,13 +9,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-import org.netgene.ga.Individual;
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Population;
 import org.netgene.ga.chromosome.IntegerChromosome;
 import org.netgene.ga.fitness.FitnessFunction;
 import org.netgene.ga.gene.IntegerGene;
 import org.netgene.ga.selection.parent.*;
-import static xtest.SudokuGAPerm.fillRandomUniqueDigits;
 
 /**
  *

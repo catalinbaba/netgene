@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package org.x.demo;
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Population;
 
 /**
  *

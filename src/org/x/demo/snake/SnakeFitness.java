@@ -8,8 +8,8 @@ package org.x.demo.snake;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.netgene.ga.Individual;
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Population;
 import org.netgene.ga.chromosome.DoubleChromosome;
 import org.netgene.ga.fitness.FitnessFunction;
 import org.netgene.network.MultiLayerNetwork;

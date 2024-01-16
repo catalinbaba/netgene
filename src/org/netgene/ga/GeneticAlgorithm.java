@@ -18,7 +18,7 @@
  *    Catalin Baba (catalin.viorelbaba@gmail.com)
 */
 
-package org.netgene.ga.core;
+package org.netgene.ga;
 
 import java.io.Serializable;
 import java.time.Clock;
@@ -29,10 +29,10 @@ import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
-import org.netgene.ga.Individual;
-import org.netgene.ga.Offspring;
-import org.netgene.ga.Parents;
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Offspring;
+import org.netgene.ga.core.Parents;
+import org.netgene.ga.core.Population;
 import org.netgene.ga.chromosome.Chromosome;
 import org.netgene.ga.crossover.CrossoverOperator;
 import org.netgene.ga.exception.CrossoverException;

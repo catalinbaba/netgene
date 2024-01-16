@@ -18,7 +18,7 @@
  *    Catalin Baba (catalin.viorelbaba@gmail.com)
 */
 
-package org.netgene.ga.core;
+package org.netgene.ga;
 
 /**
  *

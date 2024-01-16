@@ -20,9 +20,9 @@
 
 package org.netgene.ga.crossover;
 
-import org.netgene.ga.Individual;
+import org.netgene.ga.core.Individual;
 import org.netgene.ga.chromosome.Chromosome;
-import org.netgene.ga.Offspring;
+import org.netgene.ga.core.Offspring;
 import org.netgene.ga.exception.CrossoverException;
 import org.netgene.ga.gene.Gene;
 

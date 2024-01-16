@@ -5,8 +5,8 @@
  */
 package xtest;
 
-import org.netgene.ga.Individual;
-import org.netgene.ga.Offspring;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Offspring;
 import org.netgene.ga.chromosome.IntegerChromosome;
 import org.netgene.ga.crossover.CrossoverOperator;
 import org.netgene.ga.exception.CrossoverException;

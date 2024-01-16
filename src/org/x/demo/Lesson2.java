@@ -11,17 +11,17 @@ package org.x.demo;
  * and open the template in the editor.
  */
 
-import org.netgene.ga.Individual;
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Population;
 import org.netgene.ga.chromosome.Chromosome;
 import org.netgene.ga.chromosome.PermutationChromosome;
-import org.netgene.ga.core.GeneticAlgorithm;
-import org.netgene.ga.core.GeneticConfiguration;
+import org.netgene.ga.GeneticAlgorithm;
+import org.netgene.ga.GeneticConfiguration;
 import org.netgene.ga.crossover.Order1Crossover;
 import org.netgene.ga.fitness.FitnessFunction;
 import org.netgene.ga.selection.parent.TournamentSelector;
 import org.netgene.ga.mutator.InversionMutator;
-import org.netgene.ga.core.GenerationTracker;
+import org.netgene.ga.GenerationTracker;
 import org.netgene.ga.stop.StopCondition;
 
 /**

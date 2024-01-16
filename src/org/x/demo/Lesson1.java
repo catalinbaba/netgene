@@ -6,8 +6,9 @@
 package org.x.demo;
 
 
+import org.netgene.ga.core.Population;
+import org.netgene.ga.core.Individual;
 import org.netgene.ga.*;
-import org.netgene.ga.core.*;
 import org.netgene.ga.crossover.*;
 import org.netgene.ga.mutator.*;
 import org.netgene.ga.chromosome.*;

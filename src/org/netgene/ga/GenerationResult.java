@@ -18,11 +18,11 @@
  *    Catalin Baba (catalin.viorelbaba@gmail.com)
 */
 
-package org.netgene.ga.core;
+package org.netgene.ga;
 
 import java.io.Serializable;
 import java.time.Duration;
-import org.netgene.ga.Individual;
+import org.netgene.ga.core.Individual;
 
 /**
  * Generation Result in each generation

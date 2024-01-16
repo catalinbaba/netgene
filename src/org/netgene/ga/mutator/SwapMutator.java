@@ -21,7 +21,7 @@
 package org.netgene.ga.mutator;
 
 import java.io.Serializable;
-import org.netgene.ga.Individual;
+import org.netgene.ga.core.Individual;
 import org.netgene.ga.chromosome.Chromosome;
 import org.netgene.ga.exception.MutatorException;
 import org.netgene.ga.gene.Gene;

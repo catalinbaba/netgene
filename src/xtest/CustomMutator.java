@@ -6,10 +6,9 @@
 package xtest;
 
 import java.util.ArrayList;
-import org.netgene.ga.Individual;
+import org.netgene.ga.core.Individual;
 import org.netgene.ga.chromosome.IntegerChromosome;
 import org.netgene.ga.exception.MutatorException;
-import org.netgene.ga.gene.Gene;
 import org.netgene.ga.gene.IntegerGene;
 import org.netgene.ga.mutator.MutatorOperator;
 import org.netgene.utils.RandomUtils;

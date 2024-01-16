@@ -20,7 +20,7 @@
 
 package org.netgene.ga.fitness;
 
-import org.netgene.ga.Individual;
+import org.netgene.ga.core.Individual;
 
 /**
  *

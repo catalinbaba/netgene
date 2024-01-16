@@ -6,17 +6,16 @@
 package org.x.demo.snake;
 
 import java.util.concurrent.ExecutorService;
-import org.netgene.ga.Individual;
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Population;
 import org.netgene.ga.chromosome.DoubleChromosome;
-import org.netgene.ga.core.GeneticAlgorithm;
+import org.netgene.ga.GeneticAlgorithm;
 import org.netgene.ga.gene.DoubleGene;
 import org.netgene.ga.selection.parent.TournamentSelector;
 import org.netgene.network.MultiLayerNetwork;
 import org.netgene.network.exception.NNException;
-import org.netgene.ga.core.GeneticConfiguration;
-import org.netgene.ga.stop.StopCondition;
-import org.netgene.ga.core.GenerationTracker;
+import org.netgene.ga.GeneticConfiguration;
+import org.netgene.ga.GenerationTracker;
 
 /**
  *
@@ -54,6 +53,8 @@ public class SnakeAI
           
         System.out.println("Population is created!");
         
+        //System.out.println("threads: " + Runtime.getRuntime().availableProcessors());
+        
         SnakeFitness snakeFitness = new SnakeFitness();
            
         TournamentSelector tournamentSelector = new TournamentSelector(10);
@@ -65,6 +66,7 @@ public class SnakeAI
                                                   .setElitismSize(10)
                                                   .setMaxGeneration(1000)
                                                   .setThreadPoolSize(2)
+                                                  .setThreadPoolSize(24)
                                                   .getAlgorithm();
         
         

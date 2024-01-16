@@ -9,21 +9,14 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-import org.netgene.ga.Individual;
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Population;
 import org.netgene.ga.chromosome.IntegerChromosome;
-import org.netgene.ga.chromosome.*;
-import org.netgene.ga.core.GenerationTracker;
-import org.netgene.ga.core.GeneticAlgorithm;
-import org.netgene.ga.core.GeneticConfiguration;
-import org.netgene.ga.crossover.OnePointCrossover;
-import org.netgene.ga.crossover.Order1Crossover;
-import org.netgene.ga.crossover.TwoPointCrossover;
-import org.netgene.ga.crossover.UniformCrossover;
+import org.netgene.ga.GenerationTracker;
+import org.netgene.ga.GeneticAlgorithm;
+import org.netgene.ga.GeneticConfiguration;
 import org.netgene.ga.fitness.FitnessFunction;
 import org.netgene.ga.gene.IntegerGene;
-import org.netgene.ga.mutator.ScrambleMutator;
-import org.netgene.ga.mutator.SwapMutator;
 import org.netgene.ga.selection.parent.TournamentSelector;
 
 /**

@@ -18,7 +18,7 @@
  *    Catalin Baba (catalin.viorelbaba@gmail.com)
 */
 
-package org.netgene.ga.core;
+package org.netgene.ga;
 
 import java.io.Serializable;
 import java.time.Clock;
@@ -29,14 +29,14 @@ import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
-import org.netgene.ga.Individual;
-import org.netgene.ga.Offspring;
-import org.netgene.ga.Parents;
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Offspring;
+import org.netgene.ga.core.Parents;
+import org.netgene.ga.core.Population;
 import org.netgene.ga.chromosome.Chromosome;
-import org.netgene.ga.chromosome.IntegerChromosome;
 import org.netgene.ga.crossover.CrossoverOperator;
 import org.netgene.ga.exception.CrossoverException;
+import org.netgene.ga.exception.GaException;
 import org.netgene.ga.exception.MutatorException;
 import org.netgene.ga.exception.SelectionException;
 import org.netgene.ga.fitness.FitnessFunction;
@@ -131,7 +131,6 @@ public class GeneticAlgorithm implements Serializable
         this.mutatorOperator = mutatorOperator;
         this.mutatorOperator.setMutationRate(mutationRate);
         this.crossoverRate = crossoverRate;
-        this.mutatorOperator.setMutationRate(mutationRate);
         this.elitism = elitism;
         this.elitismSize = elitismSize;
         this.maxGeneration = maxGeneration;
@@ -227,6 +226,7 @@ public class GeneticAlgorithm implements Serializable
             
             if(!skipCrossover)
                 individualStream = Stream.generate(parentsSupplier()).parallel()  //select parents
+                //individualStream = Stream.generate(parentsSupplier())  //select parents
                     .map(couple ->
                     {
                         return crossover(couple);   //crossover
@@ -238,6 +238,8 @@ public class GeneticAlgorithm implements Serializable
                     );
             else
                 individualStream = population.stream(); //parallelStream here will add hudge overhead and can make the algorithm 10 times slower
+            
+            //System.out.println("size: " + individualStream.);
             
             if(!skipMutation)
                 individualStream = individualStream.map(individual ->
@@ -270,21 +272,7 @@ public class GeneticAlgorithm implements Serializable
         */
     }
     
-    private boolean degubMethod(Individual a, Individual b)
-    {
-        IntegerChromosome ch1 = (IntegerChromosome)a.getChromosome();
-        IntegerChromosome ch2 = (IntegerChromosome)b.getChromosome();
-        //boolean rez = false;
-        for(int i=0;i<ch1.length()-1; i++)
-        {
-            int g1 = ch1.getGene(i).getAllele();
-            int g2 = ch2.getGene(i).getAllele();
-            if(g1!=g2)
-                return false;
-        }
-        return true;
-    }
-    
+   
     /*
     private Population selectOffspring(Population population)
     {
@@ -371,7 +359,7 @@ public class GeneticAlgorithm implements Serializable
         population.sort();
     }
        
-    private final boolean hasReachedStopCondition() 
+    private boolean hasReachedStopCondition() 
     {
         if (stopConditions.stream().anyMatch(stopCondition -> (stopCondition.isReached(population)))) {
             return true;
@@ -411,12 +399,17 @@ public class GeneticAlgorithm implements Serializable
     
     public void changeMutatorOperator(MutatorOperator mutator)
     {
-        this.mutatorOperator = mutator;
+        this.mutatorOperator = verifyIsNotNull(mutator);
     }
     
     public void changeSelectorOperator(ParentSelector selector)
     {
-        this.parentSelector = selector;
+        this.parentSelector = verifyIsNotNull(selector);
+    }
+    
+    public void changeCrossoverOperator(CrossoverOperator crossover)
+    {
+        this.crossoverOperator = verifyIsNotNull(crossover);
     }
     
     //-----------------------GETTER METHODS---------------------------------------
@@ -465,6 +458,8 @@ public class GeneticAlgorithm implements Serializable
      */
     public void setMutationRate(double mutationRate)
     {
+        if(mutationRate < 0)
+          throw new GaException("Mutation rate value cannot be negative");
         this.mutatorOperator.setMutationRate(mutationRate);
     }
       
@@ -495,6 +490,8 @@ public class GeneticAlgorithm implements Serializable
      */
     public void setCrossoverRate(double crossoverRate)
     {
+        if(crossoverRate <= 0)
+          throw new GaException("Crossover rate value cannot be negative");
         this.crossoverRate = crossoverRate;
     }
      
@@ -507,5 +504,12 @@ public class GeneticAlgorithm implements Serializable
     public void setGenerationTracker(GenerationTracker generationTracker)
     {
         this.generationTracker = generationTracker;
+    }
+    
+    private static <T> T verifyIsNotNull(T obj)
+    {
+        if (obj == null)
+            throw new NullPointerException();
+        return obj;
     }
 }

@@ -21,8 +21,8 @@
 package org.netgene.ga.selection.parent;
 
 import java.io.Serializable;
-import org.netgene.ga.Individual;
-import org.netgene.ga.Population;
+import org.netgene.ga.core.Individual;
+import org.netgene.ga.core.Population;
 import org.netgene.utils.RandomUtils;
 
 /**

@@ -94,7 +94,7 @@ public final class GeneticConfiguration implements Serializable
     /*
         Creates a thread pool that reuses a fixed number of threads 
     */
-    private int nThreads = Runtime.getRuntime().availableProcessors();
+    private int nThreads = Math.max(1, Runtime.getRuntime().availableProcessors() > 1 ? Runtime.getRuntime().availableProcessors() - 1 : 1);
     
     /*
         Clock used to count how long a task executes 

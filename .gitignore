@@ -1,1 +1,5 @@
 /build/
+/dist/
+/netgene/nbproject/private/
+/nbproject/private/
+/GUI/nbproject/private/

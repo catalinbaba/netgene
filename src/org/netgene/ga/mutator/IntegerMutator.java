@@ -41,16 +41,13 @@ public class IntegerMutator extends MutatorOperator implements Serializable
     
     private void mutate(Chromosome chromosome)  
     {
-        for(int i=0 ;i<chromosome.length(); i++)
+       double rand = RandomUtils.nextDouble();
+        if(rand < mutationRate) //is selected to be mutated
         {
-            double rand = RandomUtils.nextDouble();
-            if(rand < mutationRate) //is selected to be mutated
-            {
-               int value = RandomUtils.nextInt(minRange, maxRange);
-               IntegerGene gene = new IntegerGene(value);
-               //if(!chromosome.contains(gene))
-                   chromosome.setGene(i, gene);
-            }
+            int randomIndex = RandomUtils.nextInt(chromosome.length()); //which gene to mutate
+            int value = RandomUtils.nextInt(minRange, maxRange);
+            IntegerGene gene = new IntegerGene(value);
+            chromosome.setGene(randomIndex, gene);
         }
     }
 

@@ -74,11 +74,6 @@ public class RandomUtils
         {
             throw new IllegalArgumentException("rangeMin value cannot be greather than rangeMax value");
         }
-        if(rangeMin < 0)
-        {
-            throw new IllegalArgumentException("rangeMin and rangeMax vlaues cannot be negative");
-        }
-        
         return rangeMin + random.nextInt(rangeMax - rangeMin);
     }
     

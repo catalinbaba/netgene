@@ -45,6 +45,7 @@ public class SudokuGaSimple
         SwapMutator mutator = new SwapMutator();
         //InversionMutator mutator = new InversionMutator();
         //ScrambleMutator mutator = new ScrambleMutator();
+        crossover.setSingleOff(true);
         
         GeneticAlgorithm ga = new GeneticConfiguration()
                                                   .setParentSelector(selector)

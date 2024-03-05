@@ -67,7 +67,7 @@ public class SudokuGaCustom
         {
             
             IntegerChromosome integerChromosome = new IntegerChromosome(chromosomeSize, 1, 10);
-            PermutationChromosome chromsosome = new PermutationChromosome(1,10);
+            //PermutationChromosome chromsosome = new PermutationChromosome(1,10);
             integerChromosome.setGene(1, new IntegerGene(2));
             Individual individual = new Individual(integerChromosome);
             population.addIndividual(individual);

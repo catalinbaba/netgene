@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomMutator2.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/GeneticConfiguration.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/SudokuGAPerm.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/BitFlipMutator.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/TwoPointCrossover.java</file>
@@ -23,16 +24,21 @@
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/UniformCrossover.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/FixedPointCrossover.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/core/Population.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/CrossoverOperator.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaSimple.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomCrossover.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/CustomPyCrossover.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/selection/parent/TournamentSelector.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomPyCrossover.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/CustomMutator.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/GeneticAlgorithm.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/chromosome/PermutationChromosome.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/OnePointCrossover.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/stop/StopCondition.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xl/Lesson1.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/Sudoku.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/CustomCrossover.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/test/Test.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomMutator.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaCustom.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/MutatorOperator.java</file>

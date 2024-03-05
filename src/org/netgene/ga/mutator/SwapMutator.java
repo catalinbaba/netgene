@@ -54,9 +54,9 @@ public class SwapMutator extends MutatorOperator implements Serializable
             else
                 secondIndex = firstIndex - 1; 
         }
-        
         if(rand < mutationRate) //is selected to be mutated
         {
+            //System.out.println("mutate");
             Gene firstGene = chromosome.getGene(firstIndex);
                 
             chromosome.setGene(firstIndex, chromosome.getGene(secondIndex));

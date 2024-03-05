@@ -40,6 +40,18 @@ public class Individual<G extends Gene<?>>  implements  Comparable, Serializable
 
     private transient double fitnessValue = 0.0;
     
+    private boolean elite = false;
+    
+    public void setElite(boolean elite)
+    {
+        this.elite = elite;
+    }
+    
+    public boolean isElite()
+    {
+        return this.elite;
+    }
+    
     /**
      * create a new instance of Individual
      */

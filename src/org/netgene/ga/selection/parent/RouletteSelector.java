@@ -53,13 +53,14 @@ public class RouletteSelector extends ParentSelector implements Serializable
         double spinWheel = 0.0;
         double populationFitness = population.populationFitness();
         double rouletteWheelPosition =  RandomUtils.nextDouble() * populationFitness;
-        
-                //select parent
+ 
         for(int i=0; i< population.size(); i++)
         {
             spinWheel = spinWheel + population.getIndividual(i).getFitnessScore();
-            if(spinWheel > rouletteWheelPosition)
+            if(spinWheel >= rouletteWheelPosition)
+            {
                 return population.getIndividual(i);
+            }
         }
         return null; //unreachable code to make the compiler happy
     }

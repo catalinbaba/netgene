@@ -14,6 +14,7 @@ import org.netgene.ga.GeneticAlgorithm;
 import org.netgene.ga.GeneticConfiguration;
 import org.netgene.ga.crossover.*;
 import org.netgene.ga.fitness.FitnessFunction;
+import org.netgene.ga.gene.IntegerGene;
 import org.netgene.ga.mutator.*;
 import org.netgene.ga.selection.parent.*;
 
@@ -22,10 +23,10 @@ import org.netgene.ga.selection.parent.*;
  *
  * @author cbaba
  */
-public class SudokuGaSimple 
+public class SudokuGaCustom 
 {
     
-    private static int populationSize = 1000;
+    private static int populationSize = 10000;
     private static int chromosomeSize = 81;
      
      
@@ -38,15 +39,17 @@ public class SudokuGaSimple
         
         TournamentSelector selector = new TournamentSelector(10);
         //RankSelector selector = new RankSelector();
-        TwoPointCrossover crossover = new TwoPointCrossover();
+        CustomCrossover crossover = new CustomCrossover();
+        CustomMutator mutator = new CustomMutator();
         //Order1Crossover crossover = new Order1Crossover();
         //UniformCrossover crossover = new UniformCrossover();
         //IntegerMutator mutator = new IntegerMutator(1,10);
-        SwapMutator mutator = new SwapMutator();
+        //SwapMutator mutator = new SwapMutator();
         //InversionMutator mutator = new InversionMutator();
         //ScrambleMutator mutator = new ScrambleMutator();
-        crossover.setSingleOff(true);
         
+        
+         
         GeneticAlgorithm ga = new GeneticConfiguration()
                                                   .setParentSelector(selector)
                                                   .setMutatorOperator(mutator)
@@ -64,6 +67,8 @@ public class SudokuGaSimple
         {
             
             IntegerChromosome integerChromosome = new IntegerChromosome(chromosomeSize, 1, 10);
+            //PermutationChromosome chromsosome = new PermutationChromosome(1,10);
+            integerChromosome.setGene(1, new IntegerGene(2));
             Individual individual = new Individual(integerChromosome);
             population.addIndividual(individual);
         }
@@ -114,6 +119,7 @@ public class SudokuGaSimple
                         for(int i=populationSize/2; i<populationSize; i++)
                         {
                             IntegerChromosome integerChromosome = new IntegerChromosome(chromosomeSize, 1, 10);
+                            integerChromosome.setGene(1, new IntegerGene(2));
                             Individual individual = new Individual(integerChromosome);
                             population.replaceIndividual(i, individual);
                         }

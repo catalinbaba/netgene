@@ -200,7 +200,7 @@ public class GeneticAlgorithm implements Serializable
 
         //pass elites to the new population
         population.stream().limit(population.size()-limit).forEach(elem -> newPopulation.addIndividual(elem));
-     
+       
         Task evolutionParallelTask = getEvolutionParallelTask(limit, newPopulation);
     
         Duration evolutionDuration = taskExecutor.runTask(evolutionParallelTask, threadPool);
@@ -235,9 +235,9 @@ public class GeneticAlgorithm implements Serializable
                     {
                         return offspring.getIndividuals().stream();
                     }
-                    );
+                    ).limit(limit);
             else
-                individualStream = population.stream(); //parallelStream here will add hudge overhead and can make the algorithm 10 times slower
+                individualStream = population.stream().limit(limit); //parallelStream here will add hudge overhead and can make the algorithm 10 times slower
             
             //System.out.println("size: " + individualStream.);
             
@@ -248,8 +248,15 @@ public class GeneticAlgorithm implements Serializable
                     return individual;
                 }
                 );
-            individualStream.limit(limit).forEach(individual -> newPopulation.addIndividual(individual));
             
+//            System.out.println("first individual: "+ population.getIndividual(0));
+//            System.out.println("size: "+  population.size());
+            
+            individualStream.forEach(individual -> newPopulation.addIndividual(individual));
+            
+//            System.out.println("first individual 2: "+ population.getIndividual(0));
+//            System.out.println("size2: "+  population.size());
+//            
             population = newPopulation;
         };
     }

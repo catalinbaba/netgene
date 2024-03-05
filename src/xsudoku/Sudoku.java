@@ -24,15 +24,16 @@ import org.netgene.utils.RandomUtils;
  */
 public class Sudoku 
 {
-    private int[][] table = {{1,1,1,1,1,1,1,1,1,1},
-        {0,1,2,3,4,5,6,7,8,9},
-        {0,1,2,3,4,5,6,7,8,9},
-        {0,1,2,3,4,5,6,7,8,9},
-        {0,1,2,3,4,5,6,7,8,9},
-        {0,1,2,3,4,5,6,7,8,9},
-        {0,1,2,3,4,5,6,7,8,9},
-        {0,1,2,3,4,5,6,7,8,9},
-        {0,1,2,3,4,5,6,7,8,9},
+    private int[][] table = {
+        {1,2,3,4,5,6,7,8,9},
+        {1,2,3,4,5,6,7,8,9},
+        {1,2,3,4,5,6,7,8,9},
+        {1,2,3,4,5,6,7,8,9},
+        {1,2,3,4,5,6,7,8,9},
+        {1,2,3,4,5,6,7,8,9},
+        {1,2,3,4,5,6,7,8,9},
+        {1,2,3,4,5,6,7,8,9},
+        {1,2,3,4,5,6,7,8,9},
     };
     
     
@@ -56,6 +57,19 @@ public class Sudoku
             this.table[row][col] = table[i];
         }
 
+    }
+    
+    public int countRowDuplicates(int row)
+    {
+        int duplicates = 0;
+        for(int i=0; i<columns; i++)
+            for(int j=i+1; j<columns; j++ )
+               if(table[row][i] == table[row][j])
+                {
+                   duplicates++;
+                   break;
+                }
+        return duplicates;
     }
    
     public void replaceValue(int index, int value)
@@ -174,20 +188,6 @@ public class Sudoku
         return false;
      }
     
-  
-    
-    public int countRowDuplicates(int row)
-    {
-        int duplicates = 0;
-        for(int i=0; i<columns; i++)
-            for(int j=i+1; j<columns; j++ )
-               if(table[row][i] == table[row][j])
-                {
-                   duplicates++;
-                   break;
-                }
-        return duplicates;
-    }
     
     public int countColumnsDuplicates(int column)
     {
@@ -349,7 +349,7 @@ public class Sudoku
         while ((value = reader.readLine()) != null) 
             tableList.add(Integer.parseInt(value));
         
-         reader.close();
+        reader.close();
         
         int values[] = new int[tableList.size()];
         

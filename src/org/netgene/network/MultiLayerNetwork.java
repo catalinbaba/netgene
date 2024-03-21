@@ -44,7 +44,7 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     // Layer list
     protected LayerList layers;
       
-    private MultiLayerNetwork()
+    public MultiLayerNetwork()
     {
         layers = new LayerList();
     }
@@ -467,190 +467,360 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
                 }
     }
     
-    
-    public static class Builder
+    /**
+    *  Add a new layer specifying how many neurons will have
+    * 
+    *  @param size
+    *       Specify how many neurons the layer will have
+    * 
+    * @return MultiLayerNetwork Builder
+    *      
+    */ 
+    public MultiLayerNetwork addLayer(int size)
     {
-        // MultiLayerNetwork to be built
-        
-        public MultiLayerNetwork neuralNetwork;
-        
-        /**
-        * Create a new MultiLayerNetwork builder
-        *
-        */
-        public Builder()
-        {
-           neuralNetwork = new MultiLayerNetwork();
-        }
-        
-        /**
-        *  Add a new layer specifying how many neurons will have
-        * 
-        *  @param size
-        *       Specify how many neurons the layer will have
-        * 
-        * @return MultiLayerNetwork Builder
-        *      
-        */ 
-    
-        public Builder addLayer(int size)
-        {
-            neuralNetwork.getLayerList().addLayer(new Layer());
-            for(int i = 0; i < size; i++)
-                neuralNetwork.getLayerList().getOutputLayer().addNeuron(new Neuron());
-            return this;
-        }
-    
-        /**
-        *  Add a new layer specifying how many neurons will have and the transfer function
-        * 
-        * @param size
-        *   Specify how many neurons the layer will have
-        * 
-        * @param transferFunction
-        *   Set the transfer function for all neurons in that layer
-        * 
-        * @return MultiLayerNetwork Builder
-        *      
-        */ 
-        public Builder addLayer(int size, TransferFunction transferFunction)
-        {
-            neuralNetwork.getLayerList().addLayer(new Layer());
-            for(int i = 0; i < size; i++)
-                neuralNetwork.getLayerList().getOutputLayer().addNeuron(new Neuron(transferFunction));
-            return this;
-        }
-    
-        /**
-        *  Add a new layer specifying how many neurons will have and the input function
-        * 
-        *  @param size
-        *       Specify how many neurons the layer will have
-        * 
-        *  @param inputFunction
-        *       Set the input function for all neurons in this layer
-        * 
-        * @return MultiLayerNetwork Builder
-        *      
-        */ 
-        public Builder addLayer(int size, InputFunction inputFunction)
-        {
-            neuralNetwork.getLayerList().addLayer(new Layer());
-            for(int i = 0; i < size; i++)
-                neuralNetwork.getLayerList().getOutputLayer().addNeuron(new Neuron(inputFunction));
-            return this;
-        }
-    
-        /**
-        *  Add a new layer specifying how many neurons will have, the transfer function and the input function
-        * 
-        * @param size
-        *   Specify how many neurons the layer will have
-        * 
-        * @param transferFunction
-        *   Set the transfer function for all neurons in that layer
-        * 
-        * @param inputFunction
-        *   Set the input function for all neurons in that layer
-        * 
-        * @return MultiLayerNetwork Builder
-        *       
-        */ 
-        public Builder addLayer(int size, TransferFunction transferFunction, InputFunction inputFunction)
-        {   
-            neuralNetwork.getLayerList().addLayer(new Layer());
-            for(int i = 0; i < size; i++)
-                neuralNetwork.getLayerList().getOutputLayer().addNeuron(new Neuron(transferFunction,inputFunction));
-            return this;
-        }
-        
-        /**
-        * Add a created neuron to a specific layer
-        * 
-        * @param layerNumber
-        *   Layer number where the neuron will be added
-        *   
-        * @param neuron
-        *   Neuron to be added
-        * 
-        * @return MultiLayerNetwork Builder
-        * 
-        * @throws NNException if the Layer is not created
-        *      
-        */
-    
-        public Builder addNeuronToLayer(int layerNumber, Neuron neuron) throws NNException
-        {
-            if(layerNumber > neuralNetwork.getLayerList().size())
-                throw new NNException("Layer " + layerNumber + "is not created");
-            neuralNetwork.getLayerList().getLayer(layerNumber).addNeuron(neuron);
-            return this;
-        }
-    
-        /**
-        * Create and add a bias neuron to a specific layer
-        * 
-        * @param layerNumber
-        *   Layer number where the neuron will be added
-        * 
-        * @return MultiLayerNetwork Builder
-        * 
-        * @throws NNException if the Layer is not created
-        *       
-        */
-    
-        public Builder addBiasNeuronToLayer(int layerNumber) throws NNException
-        {
-            if(layerNumber > neuralNetwork.getLayerList().size())
-                throw new NNException("Layer " + layerNumber + "is not created");
-            if(layerNumber == neuralNetwork.getLayerList().size() - 1)
-                throw new NNException("Cannot add bias neuron to output layer");
-           neuralNetwork.getLayerList().getLayer(layerNumber).addNeuron(new BiasNeuron());
-           return this;
-        }
-    
-        /**
-        * Add bias neurons to all layers except output layer
-        * 
-        * @return MultiLayerNetwork Builder
-        *      
-        */
-        public Builder addBiasNeurons()
-        {
-            for(int layerNum = 0; layerNum <neuralNetwork.getLayerList().size()-1; layerNum++) //do not add bias neuron to output layer
-                neuralNetwork.getLayerList().getLayer(layerNum).addNeuron(new BiasNeuron());
-            return this;
-        }
-        
-        /**
-        * Build the Multi Layer Neural Network
-        * 
-        * @param connectNeurons
-        *    Create a fully connected neural network. If the value is false a MultiLayerNetwork with no connection is build and the user should manually set the connections.
-        * 
-        * @return MultiLayerNetwork 
-        * 
-        * @throws NNException if the MultiLayerNetwork cannot create the connections
-        * 
-        */
-        public MultiLayerNetwork build(boolean connectNeurons) throws NNException
-        {
-            if(connectNeurons)
-               neuralNetwork.setFullConnectivity();
-            return neuralNetwork;
-        }
-        
-        /**
-        * Build a fully connected  Multi Layer Neural Network
-        * 
-        * @return MultiLayerNetwork 
-        * 
-        * @throws NNException if the MultiLayerNetwork cannot create the connections
-        *    
-        */
-        public MultiLayerNetwork build() throws NNException
-        {
-           return build(true);
-        }
+        getLayerList().addLayer(new Layer());
+        for(int i = 0; i < size; i++)
+            getLayerList().getOutputLayer().addNeuron(new Neuron());
+        return this;
     }
+    
+    /**
+    *  Add a new layer specifying how many neurons will have and the transfer function
+    * 
+    * @param size
+    *   Specify how many neurons the layer will have
+    * 
+    * @param transferFunction
+    *   Set the transfer function for all neurons in that layer
+    * 
+    * @return MultiLayerNetwork Builder
+    *      
+    */ 
+    public MultiLayerNetwork addLayer(int size, TransferFunction transferFunction)
+    {
+        getLayerList().addLayer(new Layer());
+        for(int i = 0; i < size; i++)
+            getLayerList().getOutputLayer().addNeuron(new Neuron(transferFunction));
+        return this;
+    }
+    
+    /**
+    *  Add a new layer specifying how many neurons will have and the input function
+    * 
+    *  @param size
+    *       Specify how many neurons the layer will have
+    * 
+    *  @param inputFunction
+    *       Set the input function for all neurons in this layer
+    * 
+    * @return MultiLayerNetwork Builder
+    *      
+    */ 
+    public MultiLayerNetwork addLayer(int size, InputFunction inputFunction)
+    {
+        getLayerList().addLayer(new Layer());
+        for(int i = 0; i < size; i++)
+            getLayerList().getOutputLayer().addNeuron(new Neuron(inputFunction));
+        return this;
+    }
+    
+    /**
+    *  Add a new layer specifying how many neurons will have, the transfer function and the input function
+    * 
+    * @param size
+    *   Specify how many neurons the layer will have
+    * 
+    * @param transferFunction
+    *   Set the transfer function for all neurons in that layer
+    * 
+    * @param inputFunction
+    *   Set the input function for all neurons in that layer
+    * 
+    * @return MultiLayerNetwork Builder
+    *       
+    */ 
+    public MultiLayerNetwork addLayer(int size, TransferFunction transferFunction, InputFunction inputFunction)
+    {   
+        getLayerList().addLayer(new Layer());
+        for(int i = 0; i < size; i++)
+            getLayerList().getOutputLayer().addNeuron(new Neuron(transferFunction,inputFunction));
+        return this;
+    }
+        
+    /**
+    * Add a created neuron to a specific layer
+    * 
+    * @param layerNumber
+    *   Layer number where the neuron will be added
+    *   
+    * @param neuron
+    *   Neuron to be added
+    * 
+    * @return MultiLayerNetwork Builder
+    * 
+    * @throws NNException if the Layer is not created
+    *      
+    */
+    
+    public MultiLayerNetwork addNeuronToLayer(int layerNumber, Neuron neuron) throws NNException
+    {
+        if(layerNumber > getLayerList().size())
+            throw new NNException("Layer " + layerNumber + "is not created");
+        getLayerList().getLayer(layerNumber).addNeuron(neuron);
+        return this;
+    }
+    
+    /**
+    * Create and add a bias neuron to a specific layer
+    * 
+    * @param layerNumber
+    *   Layer number where the neuron will be added
+    * 
+    * @return MultiLayerNetwork Builder
+    * 
+    * @throws NNException if the Layer is not created
+    *       
+    */
+    
+    public MultiLayerNetwork addBiasNeuronToLayer(int layerNumber) throws NNException
+    {
+        if(layerNumber > getLayerList().size())
+            throw new NNException("Layer " + layerNumber + "is not created");
+        if(layerNumber == getLayerList().size() - 1)
+            throw new NNException("Cannot add bias neuron to output layer");
+        getLayerList().getLayer(layerNumber).addNeuron(new BiasNeuron());
+        return this;
+    }
+    
+    /**
+    * Add bias neurons to all layers except output layer
+    * 
+    * @return MultiLayerNetwork Builder
+    *      
+    */
+    public MultiLayerNetwork addBiasNeurons()
+    {
+        for(int layerNum = 0; layerNum <getLayerList().size()-1; layerNum++) //do not add bias neuron to output layer
+            getLayerList().getLayer(layerNum).addNeuron(new BiasNeuron());
+        return this;
+    }
+        
+    /**
+    * Build the Multi Layer Neural Network
+    * 
+    * @param connectNeurons
+    *    Create a fully connected neural network. If the value is false a MultiLayerNetwork with no connection is build and the user should manually set the connections.
+    * 
+    * @return MultiLayerNetwork 
+    * 
+    * @throws NNException if the MultiLayerNetwork cannot create the connections
+    * 
+    */
+    public MultiLayerNetwork build(boolean connectNeurons) throws NNException
+    {
+        if(connectNeurons)
+            setFullConnectivity();
+        return this;
+    }
+        
+    /**
+    * Build a fully connected  Multi Layer Neural Network
+    * 
+    * @return MultiLayerNetwork 
+    * 
+    * @throws NNException if the MultiLayerNetwork cannot create the connections
+    *    
+    */
+    public MultiLayerNetwork build() throws NNException
+    {
+        return build(true);
+    }
+    
+    
+//    public static class Builder
+//    {
+//        // MultiLayerNetwork to be built
+//        
+//        public MultiLayerNetwork neuralNetwork;
+//        
+//        /**
+//        * Create a new MultiLayerNetwork builder
+//        *
+//        */
+//        public Builder()
+//        {
+//           neuralNetwork = new MultiLayerNetwork();
+//        }
+//        
+//        /**
+//        *  Add a new layer specifying how many neurons will have
+//        * 
+//        *  @param size
+//        *       Specify how many neurons the layer will have
+//        * 
+//        * @return MultiLayerNetwork Builder
+//        *      
+//        */ 
+//    
+//        public Builder addLayer(int size)
+//        {
+//            neuralNetwork.getLayerList().addLayer(new Layer());
+//            for(int i = 0; i < size; i++)
+//                neuralNetwork.getLayerList().getOutputLayer().addNeuron(new Neuron());
+//            return this;
+//        }
+//    
+//        /**
+//        *  Add a new layer specifying how many neurons will have and the transfer function
+//        * 
+//        * @param size
+//        *   Specify how many neurons the layer will have
+//        * 
+//        * @param transferFunction
+//        *   Set the transfer function for all neurons in that layer
+//        * 
+//        * @return MultiLayerNetwork Builder
+//        *      
+//        */ 
+//        public Builder addLayer(int size, TransferFunction transferFunction)
+//        {
+//            neuralNetwork.getLayerList().addLayer(new Layer());
+//            for(int i = 0; i < size; i++)
+//                neuralNetwork.getLayerList().getOutputLayer().addNeuron(new Neuron(transferFunction));
+//            return this;
+//        }
+//    
+//        /**
+//        *  Add a new layer specifying how many neurons will have and the input function
+//        * 
+//        *  @param size
+//        *       Specify how many neurons the layer will have
+//        * 
+//        *  @param inputFunction
+//        *       Set the input function for all neurons in this layer
+//        * 
+//        * @return MultiLayerNetwork Builder
+//        *      
+//        */ 
+//        public Builder addLayer(int size, InputFunction inputFunction)
+//        {
+//            neuralNetwork.getLayerList().addLayer(new Layer());
+//            for(int i = 0; i < size; i++)
+//                neuralNetwork.getLayerList().getOutputLayer().addNeuron(new Neuron(inputFunction));
+//            return this;
+//        }
+//    
+//        /**
+//        *  Add a new layer specifying how many neurons will have, the transfer function and the input function
+//        * 
+//        * @param size
+//        *   Specify how many neurons the layer will have
+//        * 
+//        * @param transferFunction
+//        *   Set the transfer function for all neurons in that layer
+//        * 
+//        * @param inputFunction
+//        *   Set the input function for all neurons in that layer
+//        * 
+//        * @return MultiLayerNetwork Builder
+//        *       
+//        */ 
+//        public Builder addLayer(int size, TransferFunction transferFunction, InputFunction inputFunction)
+//        {   
+//            neuralNetwork.getLayerList().addLayer(new Layer());
+//            for(int i = 0; i < size; i++)
+//                neuralNetwork.getLayerList().getOutputLayer().addNeuron(new Neuron(transferFunction,inputFunction));
+//            return this;
+//        }
+//        
+//        /**
+//        * Add a created neuron to a specific layer
+//        * 
+//        * @param layerNumber
+//        *   Layer number where the neuron will be added
+//        *   
+//        * @param neuron
+//        *   Neuron to be added
+//        * 
+//        * @return MultiLayerNetwork Builder
+//        * 
+//        * @throws NNException if the Layer is not created
+//        *      
+//        */
+//    
+//        public Builder addNeuronToLayer(int layerNumber, Neuron neuron) throws NNException
+//        {
+//            if(layerNumber > neuralNetwork.getLayerList().size())
+//                throw new NNException("Layer " + layerNumber + "is not created");
+//            neuralNetwork.getLayerList().getLayer(layerNumber).addNeuron(neuron);
+//            return this;
+//        }
+//    
+//        /**
+//        * Create and add a bias neuron to a specific layer
+//        * 
+//        * @param layerNumber
+//        *   Layer number where the neuron will be added
+//        * 
+//        * @return MultiLayerNetwork Builder
+//        * 
+//        * @throws NNException if the Layer is not created
+//        *       
+//        */
+//    
+//        public Builder addBiasNeuronToLayer(int layerNumber) throws NNException
+//        {
+//            if(layerNumber > neuralNetwork.getLayerList().size())
+//                throw new NNException("Layer " + layerNumber + "is not created");
+//            if(layerNumber == neuralNetwork.getLayerList().size() - 1)
+//                throw new NNException("Cannot add bias neuron to output layer");
+//           neuralNetwork.getLayerList().getLayer(layerNumber).addNeuron(new BiasNeuron());
+//           return this;
+//        }
+//    
+//        /**
+//        * Add bias neurons to all layers except output layer
+//        * 
+//        * @return MultiLayerNetwork Builder
+//        *      
+//        */
+//        public Builder addBiasNeurons()
+//        {
+//            for(int layerNum = 0; layerNum <neuralNetwork.getLayerList().size()-1; layerNum++) //do not add bias neuron to output layer
+//                neuralNetwork.getLayerList().getLayer(layerNum).addNeuron(new BiasNeuron());
+//            return this;
+//        }
+//        
+//        /**
+//        * Build the Multi Layer Neural Network
+//        * 
+//        * @param connectNeurons
+//        *    Create a fully connected neural network. If the value is false a MultiLayerNetwork with no connection is build and the user should manually set the connections.
+//        * 
+//        * @return MultiLayerNetwork 
+//        * 
+//        * @throws NNException if the MultiLayerNetwork cannot create the connections
+//        * 
+//        */
+//        public MultiLayerNetwork build(boolean connectNeurons) throws NNException
+//        {
+//            if(connectNeurons)
+//               neuralNetwork.setFullConnectivity();
+//            return neuralNetwork;
+//        }
+//        
+//        /**
+//        * Build a fully connected  Multi Layer Neural Network
+//        * 
+//        * @return MultiLayerNetwork 
+//        * 
+//        * @throws NNException if the MultiLayerNetwork cannot create the connections
+//        *    
+//        */
+//        public MultiLayerNetwork build() throws NNException
+//        {
+//           return build(true);
+//        }
+//        
+//    }
 }

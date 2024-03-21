@@ -18,7 +18,7 @@ public class TestSnake
 {
     public static void main(String [] args) throws Exception
     {
-       MultiLayerNetwork multiLayerNetwork = new MultiLayerNetwork.Builder()
+       MultiLayerNetwork multiLayerNetwork = new MultiLayerNetwork()
                                          .addLayer(24)
                                          .addLayer(15)
                                          .addLayer(4)
@@ -59,7 +59,7 @@ public class TestSnake
             //try
             //{
                 world.move(direction);
-                sleep(20);
+                sleep(10);
             //    if(world.isWinner())
             //        break;
             //}

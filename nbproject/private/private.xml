@@ -3,47 +3,76 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomMutator2.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/GeneticConfiguration.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/World.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/error/function/MeanSquaredLogarithmicError.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/BrainGenerator.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/SudokuGAPerm.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/BitFlipMutator.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/TwoPointCrossover.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaSimple2.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/GaussianMutator.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/SwapMutator.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/gene/IntegerGene.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaSimpleTesting.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/CustomPermMutator.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaCustom2.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/PencilMark.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/chromosome/IntegerChromosome.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomSwapMutator.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/error/function/MeanAbsoluteError.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/ScrambleMutator.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/IntegerMutator.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomCrossover2.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/UniformCrossover.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/FixedPointCrossover.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/core/Population.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/CrossoverOperator.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaSimple.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/input/InputFunction.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomCrossover.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/xtest/CustomPyCrossover.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/selection/parent/TournamentSelector.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/learning/optimizer/MSGD.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomPyCrossover.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/training/data/DataSet.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/CustomMutator.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/test/DigitRecognition.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/utils/RandomUtils.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/GeneticAlgorithm.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/chromosome/PermutationChromosome.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/OnePointCrossover.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/TestSnake.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/stop/StopCondition.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xl/Lesson1.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/Sudoku.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xtest/CustomCrossover.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/test/Test.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomMutator.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaCustom.java</file>
-            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/MutatorOperator.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGame.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/error/function/MeanSquaredError.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaSimple3.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomMutator2.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/GeneticConfiguration.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/BitFlipMutator.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/TwoPointCrossover.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/PrintWorld.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/learning/SupervisedLearning.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/learning/optimizer/SGD.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaSimpleTesting.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/error/function/MeanAbsolutePercentage.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/error/function/ErrorType.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaCustom2.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/PencilMark.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/SnakeAI.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/chromosome/IntegerChromosome.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/error/function/HingeError.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomSwapMutator.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/MultiLayerNetwork.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/CustomCrossover2.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/UniformCrossover.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/SnakeFitness.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/FixedPointCrossover.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/PlaySnake.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/test/Lesson5.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/xsudoku/SudokuGaSimple.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/xtest/CustomPyCrossover.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/x/demo/snake/Node.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/input/Max.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/crossover/OnePointCrossover.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/error/function/ErrorFunction.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/test/Test.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/learning/optimizer/RMSprop.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/input/Sum.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/training/data/TrainingData.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/MutatorOperator.java</file>
+            <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/network/input/Min.java</file>
             <file>file:/C:/storage/priv_cbaba_dev/src/org/netgene/ga/mutator/InversionMutator.java</file>
         </group>
     </open-files>

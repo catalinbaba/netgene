@@ -12,7 +12,7 @@ public class BrainGenerator
     public static MultiLayerNetwork generateBrain() 
     {
         
-        MultiLayerNetwork multiLayerNetwork = new MultiLayerNetwork.Builder()
+        MultiLayerNetwork multiLayerNetwork = new MultiLayerNetwork()
                                          .addLayer(24)
                                          .addLayer(15)
                                          .addLayer(4)

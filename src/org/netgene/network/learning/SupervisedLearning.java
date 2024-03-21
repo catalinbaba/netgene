@@ -79,12 +79,16 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
    
    protected Printer printer;
    
+   protected IterationResult iterationResult;
+   
+      
     /**
-     * Create a nee intance of Supervised Learning
+     * Create a nee instance of Supervised Learning
      */
     protected SupervisedLearning()
    {
        errorFunction = new MeanSquaredError();
+       //setErrorLimited(true);
        printer = new ConsolePrinter();
    }
    
@@ -95,27 +99,75 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
     *   Set the error type
     * 
     * @param maxError
-    *   Set the maximul error
+    *   Set the maximum error
     * 
    */
    
    public void setErrorFunction(final int errorType, final double maxError)
    {
-       if(errorType == ErrorType.MeanAbsolutePercentage)
+        if(errorType == ErrorType.MeanAbsolutePercentage)
            errorFunction = new MeanAbsolutePercentage();
-       else if(errorType == ErrorType.MeanAbsoluteError)
+        else if(errorType == ErrorType.MeanAbsoluteError)
            errorFunction = new MeanAbsoluteError();
-       else if(errorType == ErrorType.MeanSquaredLogarithmicError)
+        else if(errorType == ErrorType.MeanSquaredLogarithmicError)
            errorFunction = new MeanSquaredLogarithmicError();
-       else if(errorType == ErrorType.HingeError)
+        else if(errorType == ErrorType.HingeError)
            errorFunction = new HingeError();
-       else
+        else
            errorFunction = new MeanSquaredError();
          
-       errorFunction.setMaxError(maxError);
+        errorFunction.setMaxError(maxError);
+   }
+   
+   /**
+    * Set Error function type and the maximum error
+    *
+    * @param errorType
+    *   Set the error type
+    * 
+   */
+   
+   public void setErrorFunction(final int errorType)
+   {
+        if(errorType == ErrorType.MeanAbsolutePercentage)
+           errorFunction = new MeanAbsolutePercentage();
+        else if(errorType == ErrorType.MeanAbsoluteError)
+           errorFunction = new MeanAbsoluteError();
+        else if(errorType == ErrorType.MeanSquaredLogarithmicError)
+           errorFunction = new MeanSquaredLogarithmicError();
+        else if(errorType == ErrorType.HingeError)
+           errorFunction = new HingeError();
+        else
+           errorFunction = new MeanSquaredError();
+   }
+   
+   /**
+    * Set Error function type and the maximum error
+    *
+    * @param errorType
+    *   Set the error type
+    * 
+    * @param maxError
+    *   Set the maximum error
+    * 
+   */
+   
+    public void setErrorFunction(final double maxError)
+    {
+        errorFunction.setMaxError(maxError);
+    }
+   
+   /**
+    * Set the condition to stop the alorithm when the max error is reached
+    * 
+   */
+   
+   public void setErrorStopCondition()
+   {
        setErrorLimited(true);
    }
    
+      
    /**
     * Change the default console printer
     * 
@@ -130,6 +182,11 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
    protected void setTrainingData(TrainingData trainingData)
    {
        this.trainingData = trainingData;
+   }
+   
+   public double getOutputError()
+   {
+       return this.iterationResult.getOutputError();
    }
       
    protected void setNeuralNetwork(NeuralNetwork neuralNetwork)
@@ -185,9 +242,10 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
         } 
         currentIteration++;
 
-        IterationResult iterationResult = new IterationResult(outputDataSet, 
+        iterationResult = new IterationResult(outputDataSet, 
                                                               errorFunction.calculateOutputError(outputDataSet, trainingData.getTagetDataSet()), 
                                                               currentIteration);
+        //System.out.println("error: " + iterationResult.getOutputError());
         if(epochEndedEvent != null)
             epochEndedEvent.handleEvent(iterationResult);
         return iterationResult;
@@ -219,7 +277,7 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
         printer.println();
         printer.println("-----------------------------------");
         printer.println("Results after training");
-        printer.println("Max Error: " + errorFunction.getMaxError());
+        printer.println("Output Error: " + iterationResult.getOutputError());
         printer.println("steps: " + currentIteration);
         printer.println("-----------------------------------");
         for(int i=0; i<trainingData.size(); i++)

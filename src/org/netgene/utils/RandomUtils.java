@@ -66,7 +66,7 @@ public class RandomUtils
      * 
      * @return the random integer
      * 
-     * @throws Exception for illegal range
+     * @throws IllegalArgumentException for illegal range
      */
     public static int nextInt(final int rangeMin, final int rangeMax) throws IllegalArgumentException
     {
@@ -74,11 +74,6 @@ public class RandomUtils
         {
             throw new IllegalArgumentException("rangeMin value cannot be greather than rangeMax value");
         }
-        if(rangeMin < 0)
-        {
-            throw new IllegalArgumentException("rangeMin and rangeMax vlaues cannot be negative");
-        }
-        
         return rangeMin + random.nextInt(rangeMax - rangeMin);
     }
     

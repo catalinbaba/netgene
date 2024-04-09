@@ -18,7 +18,7 @@
 
 <h2>Getting Started</h2>
 
-<p>Jenetics requires at least Java 21 to compile and run.</p>
+<p>Jenetics requires at least Java 16 to compile and run.</p>
 
 <p>Check out the master branch from GitHub:</p>
 

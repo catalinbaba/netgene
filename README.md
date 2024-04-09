@@ -14,7 +14,7 @@
 
 <h2>Documentation</h2>
 
-<p>The library is fully documented (<a href="https://www.google.com" target="_blank">JavaDoc</a>).</p>
+<p>The library is fully documented (<a href="https://github.com/catalinbaba/netgene/tree/master/dist/javadoc" target="_blank">JavaDoc</a>).</p>
 
 
 <h3>Getting Started</h3>

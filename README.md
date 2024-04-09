@@ -102,4 +102,89 @@
 
 <p>The JAR file can be found in the <code>dist</code> folder, which is accessible here: <a href="https://github.com/catalinbaba/netgene/tree/master/dist">https://github.com/catalinbaba/netgene/tree/master/dist</a>.</p>
 
+<h2>Example Usage</h2>
+
+<p>Below is a basic example demonstrating how to use the genetic algorithm library to evolve a population of individuals. This example configures the genetic algorithm, creates a population, and evolves it over several generations.</p>
+
+<pre><code>
+import org.netgene.ga.GeneticConfiguration;
+import org.netgene.ga.*;
+import org.netgene.ga.core.*;
+import org.netgene.ga.mutator.*;
+import org.netgene.ga.chromosome.*;
+import org.netgene.ga.fitness.*;
+import org.netgene.ga.gene.*;
+
+/*
+ * Basic setup for a genetic algorithm using the NetGene library.
+ */
+
+public class Lesson1 {
+    public static void main(String[] args) {
+        // Create a mutator for flipping bits in the chromosome
+        BitFlipMutator bfm = new BitFlipMutator();
+
+        // Configure the genetic algorithm with elitism, maximum generations, target fitness, and mutation operator
+        GeneticAlgorithm ga = new GeneticConfiguration()
+                                  .setElitismSize(1)
+                                  .setMaxGeneration(100)
+                                  .setTargetFitness(5)
+                                  .setMutatorOperator(bfm)
+                                  .getAlgorithm();
+
+        // Initialize a new population
+        Population population = new Population();
+        int populationSize = 3; // total individuals in the population
+        int chromosomeSize = 5; // genes per individual
+
+        // Populate the initial population with randomly generated individuals
+        for(int i = 0; i < populationSize; i++) {
+            BitChromosome chromosome = new BitChromosome(chromosomeSize);
+            Individual individual = new Individual(chromosome);
+            population.addIndividual(individual);
+        }
+
+        // Define a fitness function that counts the number of 'true' bits
+        FitnessFunction fitnessFnct = (individual) -> {
+            int fitness = 0;
+            BitChromosome ch = (BitChromosome)individual.getChromosome();
+            for(int i = 0; i < ch.length(); i++) {
+                BitGene gene = ch.getGene(i);
+                if(gene.getAllele() == true) {
+                    fitness++;
+                }
+            }
+            individual.setFitnessScore(fitness);
+        };
+
+        // Set up a generation tracker to output generation info and adjust mutation rate based on fitness
+        GenerationTracker tracker = (g, r) -> {
+            System.out.println("Step: " + r.getGenerationNumber());  
+            System.out.println("Best fitness: " + r.getBestFitness());
+            System.out.println("Best individual: " + r.getBestIndividual());
+            System.out.println("Evaluation duration: " + r.getEvaluationDuration().toMillis() + " ms");
+            System.out.println("Evolution duration: " + r.getEvolutionDuration().toMillis() + " ms");
+            Population population1 = g.getPopulation();
+            if(r.getBestFitness() >= 3) {
+                g.setMutationRate(0.01); // Reducing mutation rate as fitness improves
+            }
+            System.out.println("------------------------------");
+        };
+
+        // Assign the tracker to the GA and start the evolution process
+        ga.setGenerationTracker(tracker);
+        ga.evolve(population, fitnessFnct);
+
+        // Retrieve the best individual from the evolved population
+        Individual individual = ga.getPopulation().getBestIndividual();
+        double fitnessScore = individual.getFitnessScore();
+
+        // Output the best individual's info
+        System.out.println("individual " + individual);
+        System.out.println("fitness score: " + fitnessScore);
+    }
+}
+</code></pre>
+
+
 <p>Happy coding!</p>

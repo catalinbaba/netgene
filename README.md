@@ -51,6 +51,40 @@
 
 <p>Regarding genetic representation, the library supports <strong>BitGene</strong>, <strong>IntegerGene</strong>, and <strong>DoubleGene</strong> types, allowing for versatile problem formulations.</p>
 
+<h2>Neural Network Capabilities</h2>
+
+<p>This library allows for the construction of multilayer neural networks, where users can dynamically add neurons to each layer and create multiple layers to suit complex architectures.</p>
+
+<h3>Input Functions</h3>
+<ul>
+    <li><strong>Sum:</strong> The most common input function, aggregates the weighted inputs from previous neurons.</li>
+    <li><strong>Min:</strong> Takes the minimum of the inputs, useful for certain types of decision processes.</li>
+    <li><strong>Max:</strong> Takes the maximum of the inputs, useful for neural networks focusing on peak signals.</li>
+</ul>
+
+<h3>Activation Functions</h3>
+<ul>
+    <li><strong>Elu (Exponential Linear Unit):</strong> Helps reduce the vanishing gradient problem for networks that are deep.</li>
+    <li><strong>HardSigmoid:</strong> A faster, approximate version of the Sigmoid that is computationally less expensive.</li>
+    <li><strong>Linear:</strong> No transformation is applied at all, a simple identity function with a range of negative infinity to infinity.</li>
+    <li><strong>Log:</strong> Logarithmic activation function, typically used to scale down large activations.</li>
+    <li><strong>Relu (Rectified Linear Unit):</strong> Provides a range from zero to infinity, promoting faster and effective training of deep neural architectures.</li>
+    <li><strong>Sigmoid:</strong> Smoothly thresholds the inputs to values between 0 and 1, commonly used in binary classification tasks.</li>
+    <li><strong>Sin:</strong> Applies the sine function, which can model periodic behaviors.</li>
+    <li><strong>Tanh:</strong> Outputs values between -1 and 1, offering a scaled sigmoid curve.</li>
+</ul>
+
+<h3>Learning Algorithms</h3>
+<ul>
+    <li><strong>AMSGrad, AdaGrad, AdaMax, Adaleta, Adam:</strong> Variants of adaptive learning rate methods, which adjust the learning rate based on past gradients.</li>
+    <li><strong>MSGD (Modified Stochastic Gradient Descent), MillerSGD:</strong> Enhancements on traditional SGD that improve convergence rates.</li>
+    <li><strong>NAG (Nesterov Accelerated Gradient), Nadam:</strong> Incorporate momentum for faster convergence.</li>
+    <li><strong>RMSprop:</strong> An adaptive learning rate method that smooths out the gradients to avoid the exploding gradient problem.</li>
+    <li><strong>PRPOPm, RPROPp, SGD (Stochastic Gradient Descent), iRPROPm, iRPROPp:</strong> These methods vary the update rules and adaptation strategies to optimize training under different conditions.</li>
+</ul>
+
+<p>The library is standalone and does not require any third-party dependencies, making it easy to integrate and use in various environments without additional overhead.</p>
+
 
 <p>This library is perfect for anyone looking to explore the potential of genetic algorithms combined with the adaptive capabilities of neural networks in Java. Whether for academic research, simulation modeling, or complex optimization problems, our library provides a foundational structure to build upon.</p>
 

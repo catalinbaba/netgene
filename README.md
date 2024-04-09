@@ -12,6 +12,11 @@
 
 <p>This library is perfect for anyone looking to explore the potential of genetic algorithms combined with the adaptive capabilities of neural networks in Java. Whether for academic research, simulation modeling, or complex optimization problems, our library provides a foundational structure to build upon.</p>
 
+<h2>Documentation</h2>
+
+<p>The library is fully documented (<a href="https://www.google.com" target="_blank">JavaDoc</a>).</p>
+
+
 <h3>Getting Started</h3>
 
 <p>To get started, clone the repository and follow the setup instructions in the README. The library is structured to be intuitive and includes examples to help you implement your first GA and NN models.</p>

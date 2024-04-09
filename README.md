@@ -77,7 +77,7 @@
 <h3>Learning Algorithms</h3>
 <ul>
     <li><strong>AMSGrad, AdaGrad, AdaMax, Adaleta, Adam:</strong> Variants of adaptive learning rate methods, which adjust the learning rate based on past gradients.</li>
-    <li><strong>MSGD (Modified Stochastic Gradient Descent), MillerSGD:</strong> Enhancements on traditional SGD that improve convergence rates.</li>
+    <li><strong>MSGD (Momentum Stochastic Gradient Descent), MillerSGD:</strong> Enhancements on traditional SGD that improve convergence rates.</li>
     <li><strong>NAG (Nesterov Accelerated Gradient), Nadam:</strong> Incorporate momentum for faster convergence.</li>
     <li><strong>RMSprop:</strong> An adaptive learning rate method that smooths out the gradients to avoid the exploding gradient problem.</li>
     <li><strong>PRPOPm, RPROPp, SGD (Stochastic Gradient Descent), iRPROPm, iRPROPp:</strong> These methods vary the update rules and adaptation strategies to optimize training under different conditions.</li>

@@ -16,9 +16,14 @@
 
 <p>The library is fully documented (<a href="https://github.com/catalinbaba/netgene/tree/master/dist/javadoc" target="_blank">JavaDoc</a>).</p>
 
+<h2>Getting Started</h2>
 
-<h3>Getting Started</h3>
+<p>Jenetics requires at least Java 21 to compile and run.</p>
 
-<p>To get started, clone the repository and follow the setup instructions in the README. The library is structured to be intuitive and includes examples to help you implement your first GA and NN models.</p>
+<p>Check out the master branch from GitHub:</p>
+
+<pre>
+$ git clone <a href="https://github.com/catalinbaba/netgene.git">https://github.com/catalinbaba/netgene</a> &lt;builddir&gt;
+</pre>
 
 <p>Happy coding!</p>

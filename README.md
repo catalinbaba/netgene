@@ -2,7 +2,7 @@
 Genetic Algorithms and Neural Network Java Library
 
 
-Genetic Algorithm and Neural Network Library
+<b>Genetic Algorithm and Neural Network Library</b>
 Welcome to our Genetic Algorithm and Neural Network Library for Java! This robust library is designed to offer an integrated solution for simulations that leverage both genetic algorithms (GAs) and neural networks (NNs).
 
 Features

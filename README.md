@@ -98,8 +98,8 @@
 
 <p>Check out the master branch from GitHub:</p>
 
-<pre>
-$ git clone <a href="https://github.com/catalinbaba/netgene.git">https://github.com/catalinbaba/netgene</a> &lt;builddir&gt;
-</pre>
+<pre>$ git clone <a href="https://github.com/catalinbaba/netgene">https://github.com/catalinbaba/netgene</a> &lt;builddir&gt;</pre>
+
+<p>The JAR file can be found in the <code>dist</code> folder, which is accessible here: <a href="https://github.com/catalinbaba/netgene/tree/master/dist">https://github.com/catalinbaba/netgene/tree/master/dist</a>.</p>
 
 <p>Happy coding!</p>

@@ -12,7 +12,7 @@
 
 <h2>Integrated Features</h2>
 
-<p>This library offers a comprehensive suite of genetic operators and selection mechanisms, designed to enhance the flexibility and effectiveness of your evolutionary algorithms.</p>
+<p>This library offers a comprehensive suite of genetic operators and selection mechanisms, designed to enhance the flexibility and effectiveness of evolutionary algorithms.</p>
 
 <h3>Crossover Operators</h3>
 <ul>

@@ -100,7 +100,8 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     */
     public void setNetworkTransferFunction(TransferFunction transferFunction)
     {
-            layers.stream().flatMap(layer -> layer.stream()).forEach(neuron -> neuron.setTransferFunction(transferFunction));
+        verifyIsNotNull(transferFunction);
+        layers.stream().flatMap(layer -> layer.stream()).forEach(neuron -> neuron.setTransferFunction(transferFunction));
     }
     
     /**
@@ -116,6 +117,7 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     */
     public void setLayerTransferFunction(int layerNum, TransferFunction transferFunction) throws NNException
     {   
+        verifyIsNotNull(transferFunction);
         if(layerNum < layers.size() && layerNum > 0)
         {   
             Layer layer = layers.getLayer(layerNum);
@@ -162,6 +164,7 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     */
     public void setNetworkInputFunction(InputFunction inputFunction)
     {
+        verifyIsNotNull(inputFunction);
         layers.stream().flatMap(layer -> layer.stream()).forEach(neuron -> neuron.setInputFunction(inputFunction));
     }
     
@@ -178,6 +181,7 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     */
     public void setLayerInputFunction(int layerNum, InputFunction inputFunction) throws NNException
     {
+        verifyIsNotNull(inputFunction);
         if(layerNum < layers.size() && layerNum > 0)
         {
             Layer layer = layers.getLayer(layerNum);
@@ -203,6 +207,7 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     */
     public void setNeuronInputFunction(int layerNum, int neuronNum, InputFunction inputFunction) throws NNException
     {
+        verifyIsNotNull(inputFunction);
         if(layerNum < layers.size())
         {
             Layer layer = layers.getLayer(layerNum);
@@ -478,6 +483,8 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     */ 
     public MultiLayerNetwork addLayer(int size)
     {
+        if(size < 1)
+            throw new NNException("Size cannot be less than 1");
         getLayerList().addLayer(new Layer());
         for(int i = 0; i < size; i++)
             getLayerList().getOutputLayer().addNeuron(new Neuron());
@@ -498,6 +505,9 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     */ 
     public MultiLayerNetwork addLayer(int size, TransferFunction transferFunction)
     {
+        verifyIsNotNull(transferFunction);
+        if(size < 1)
+            throw new NNException("Size cannot be less than 1");
         getLayerList().addLayer(new Layer());
         for(int i = 0; i < size; i++)
             getLayerList().getOutputLayer().addNeuron(new Neuron(transferFunction));
@@ -518,6 +528,9 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     */ 
     public MultiLayerNetwork addLayer(int size, InputFunction inputFunction)
     {
+        verifyIsNotNull(inputFunction);
+        if(size < 1)
+            throw new NNException("Size cannot be less than 1");
         getLayerList().addLayer(new Layer());
         for(int i = 0; i < size; i++)
             getLayerList().getOutputLayer().addNeuron(new Neuron(inputFunction));
@@ -541,6 +554,10 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     */ 
     public MultiLayerNetwork addLayer(int size, TransferFunction transferFunction, InputFunction inputFunction)
     {   
+        verifyIsNotNull(inputFunction);
+        verifyIsNotNull(transferFunction);
+        if(size < 1)
+            throw new NNException("Size cannot be less than 1");
         getLayerList().addLayer(new Layer());
         for(int i = 0; i < size; i++)
             getLayerList().getOutputLayer().addNeuron(new Neuron(transferFunction,inputFunction));
@@ -564,6 +581,7 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     
     public MultiLayerNetwork addNeuronToLayer(int layerNumber, Neuron neuron) throws NNException
     {
+        verifyIsNotNull(neuron);
         if(layerNumber > getLayerList().size())
             throw new NNException("Layer " + layerNumber + "is not created");
         getLayerList().getLayer(layerNumber).addNeuron(neuron);
@@ -634,6 +652,13 @@ public class MultiLayerNetwork extends NeuralNetwork implements Serializable
     public MultiLayerNetwork build() throws NNException
     {
         return build(true);
+    }
+    
+    private static <T> T verifyIsNotNull(T obj)
+    {
+        if (obj == null)
+            throw new NullPointerException();
+        return obj;
     }
     
     
